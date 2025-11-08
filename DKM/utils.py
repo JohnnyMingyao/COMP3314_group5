@@ -3,7 +3,6 @@ from scipy.optimize import linear_sum_assignment
 
 
 def clustering_accuracy(y_true, y_pred):
-    """使用 Hungarian 方法匹配簇标签，返回 ACC。"""
     y_true = np.asarray(y_true)
     y_pred = np.asarray(y_pred)
 

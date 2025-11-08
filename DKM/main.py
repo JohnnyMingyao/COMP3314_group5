@@ -3,14 +3,14 @@ import numpy as np
 from pathlib import Path
 from sklearn.metrics import normalized_mutual_info_score, adjusted_rand_score
 
-from diskmeans import diskmeans  # 这里导入前面实现的函数
-from utils import clustering_accuracy  # 我们马上写一个 ACC 的小函数
+from diskmeans import diskmeans  
+from utils import clustering_accuracy 
 
 
 def load_dataset(path: Path):
     data = np.load(path)
     X = data["X"]
-    y = data.get("y", None)  # 如果没有标签就返回 None
+    y = data.get("y", None)  
     return X, y
 
 
@@ -23,7 +23,6 @@ def main(args):
 
     X, y = load_dataset(data_path)
 
-    # 运行 DisKmeans
     result = diskmeans(
         X,
         n_clusters=args.k,
@@ -48,7 +47,6 @@ def main(args):
     else:
         print("  No real labels were provided, so it is impossible to calculate ACC/NMI/ARI.")
 
-    # 若想保存投影后的特征
     if args.save_embedded:
         out_path = Path(args.output_dir)
         out_path.mkdir(parents=True, exist_ok=True)
