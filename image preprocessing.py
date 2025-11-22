@@ -11,42 +11,34 @@ Workflow:
 
 from pathlib import Path
 import numpy as np
-import cv2  # pip install opencv-python
+import cv2  
 
-# --- configuration -----------------------------------------------------------
-INPUT_DIR = Path("raw_images")       # directory containing your images
-TARGET_SIZE = (20, 10)               # (width, height) for cv2.resize
+INPUT_DIR = Path("raw_images")       
+TARGET_SIZE = (20, 10)               
 OUTPUT_PATH = Path("data/resized.npy")
 
-# --- data containers ---------------------------------------------------------
-feature_list = []
-label_list = []  # optional, fill only if you have labels
 
-# --- iterate over images -----------------------------------------------------
-for image_path in sorted(INPUT_DIR.glob("*.png")):  # adjust pattern as needed
-    # 1. load image in grayscale
+feature_list = []
+label_list = []  
+
+
+for image_path in sorted(INPUT_DIR.glob("*.png")): 
+    
     image = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
     if image is None:
         raise ValueError(f"Failed to load image: {image_path}")
 
-    # 2. resize using cv2
     resized = cv2.resize(image, TARGET_SIZE, interpolation=cv2.INTER_AREA)
 
-    # 3. flatten to a 1-D vector (NumPy flattening)
-    vector = resized.reshape(-1).astype(np.float64)  # or resized.flatten()
-
-    # 4. append to list
+    vector = resized.reshape(-1).astype(np.float64)  
+    
     feature_list.append(vector)
 
-    # Optional: derive label from filename/directory
-    # label = image_path.parent.name
-    # label_list.append(label)
 
-# --- stack into final matrix -------------------------------------------------
 if not feature_list:
     raise RuntimeError("No images processed. Check INPUT_DIR and file pattern.")
 
-X = np.vstack(feature_list)  # shape: (num_samples, num_features)
+X = np.vstack(feature_list)
 print("Feature matrix shape:", X.shape)
 
 payload = {"X": X}
