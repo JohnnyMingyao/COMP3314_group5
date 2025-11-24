@@ -11,7 +11,7 @@ The code is devided in to different parts:
 ├── 🐍 load_jaffe.py          # Data loader script
 ├── 🐍 load_xxxx.py           # Data loader script of other test sets
 └── 🚀 main.py                # Main execution script
-
+```
 ## Test Instruction:
 Before running the code, several parameters should be changed manually in main.py:
 line 33: change the number of class c
