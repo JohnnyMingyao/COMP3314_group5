@@ -13,7 +13,7 @@ The code is devided in to different parts:
 └── 🚀 main.py                # Main execution script
 ```
 ## Test Instruction:
-
+Directly pull LDMGI_code_toRun.
 Before running the code, several parameters should be changed manually in main.py:
 
 line 33: change the number of class c
