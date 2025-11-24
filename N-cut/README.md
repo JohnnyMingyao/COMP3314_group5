@@ -40,7 +40,7 @@ The script will:
 
 ## Experimental Results
 
-| Dataset    | Best ACC | Best Sigma | Paper Target | Status     |
+| Dataset    | ACC | Best Sigma | Paper Target | Status     |
 | ---------- | -------- | ---------- | ------------ | ---------- |
 | COIL-20    | 77.43%   | 1e+00      | 63.0-73.6%   | ✅ EXCEEDS |
 | JAFFE      | 95.31%   | 1e+02      | 77.4-90.4%   | ✅ EXCEEDS |
