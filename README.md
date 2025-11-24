@@ -1,18 +1,16 @@
 # Director explanation
 The code is devided in to different parts:
 
-LDMGI_code_toRun/
-├── data/
-│   ├── jaffe.npy
+```text
+📂 LDMGI_code_toRun/
+├── 📂 data/
+│   ├── 📄 jaffe.npy
 │   └── ...
-│
-├── LDMGI (the modle it self)
-|
-├── download_Coil.py (From here to ... are all data loaders
-├── load_jaffe.py
-├── ...
-|
-├── main.py (the place to run the code)
+├── 📂 LDMGI/                 # The model architecture
+├── 🐍 download_Coil.py       # Data loader script
+├── 🐍 load_jaffe.py          # Data loader script
+├── 🐍 load_xxxx.py           # Data loader script of other test sets
+└── 🚀 main.py                # Main execution script
 
 ## Test Instruction:
 Before running the code, several parameters should be changed manually in main.py:
