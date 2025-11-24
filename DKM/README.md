@@ -1,0 +1,1 @@
+How to run: python run_all.py
